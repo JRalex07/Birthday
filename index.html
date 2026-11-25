@@ -561,6 +561,118 @@
     #kado3 {
         display: none !important
     }
+
+    
+    /* Responsive layout for phones and compact screens */
+    @media (max-width: 600px) {
+        body {
+            min-height: 100vh;
+            min-height: 100svh;
+            padding: 12px;
+            overflow-x: hidden;
+        }
+
+        #Content {
+            width: 100%;
+            max-width: 100%;
+            height: auto;
+            min-height: 180px;
+            margin-left: auto;
+            margin-right: auto;
+            padding: 0 4px 24px;
+        }
+
+        blockquote {
+            width: min(400px, calc(100vw - 52px));
+            max-width: 100%;
+            box-sizing: border-box;
+            padding: 16px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        blockquote p {
+            font-size: clamp(14px, 4vw, 16px);
+            overflow-wrap: anywhere;
+        }
+
+        blockquote > .gaya2 {
+            font-size: clamp(13px, 3.7vw, 15px);
+        }
+
+        .halo {
+            max-width: 100%;
+            padding-inline: 8px;
+            font-size: clamp(16px, 4.5vw, 18px) !important;
+            overflow-wrap: anywhere;
+        }
+
+        .kumpulanstiker > img {
+            width: clamp(72px, 22vw, 100px);
+            height: auto;
+            aspect-ratio: 1;
+            object-fit: contain;
+        }
+
+        #kadoIn img {
+            width: min(130px, 36vw);
+            height: auto;
+        }
+
+        #kolombaru {
+            max-width: 100%;
+            flex-wrap: wrap;
+        }
+
+        #kolombaru li {
+            font-size: clamp(24px, 7vw, 30px);
+        }
+
+        #Tombol {
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .swal2-modal {
+            width: calc(100vw - 32px);
+            max-width: 330px;
+            box-sizing: border-box;
+            top: 0;
+        }
+    }
+
+    @media (max-width: 360px) {
+        body {
+            padding: 8px;
+        }
+
+        blockquote {
+            width: calc(100vw - 40px);
+            padding: 14px;
+        }
+
+        blockquote p {
+            line-height: 1.35;
+        }
+
+        #Tombol a {
+            padding: 9px;
+            white-space: normal;
+        }
+    }
+
+    /* Respect reduced-motion preferences for CSS effects and particles. */
+    @media (prefers-reduced-motion: reduce) {
+        *,
+        *::before,
+        *::after {
+            scroll-behavior: auto !important;
+            animation-duration: 0.01ms !important;
+            animation-iteration-count: 1 !important;
+            transition-duration: 0.01ms !important;
+        }
+    }
+
 </style>
 
 <body>
@@ -861,7 +973,7 @@
             wallpaper.style = "transform: scale(1.5);";
             fthilang(); ftganti = 5; setTimeout(ftmuncul, 300);
             otoaktipesan = 1; otomatis(); setTimeout(toaktipesan, 300);
-            setInterval(berjatuhan, 400);
+            if (!window.matchMedia("(prefers-reduced-motion: reduce)").matches) { setInterval(berjatuhan, 400); }
             fungsi = 2; setTimeout(tombol, 2000);
         }
         var otoaktipesan = 0;
